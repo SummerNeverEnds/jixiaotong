@@ -1,0 +1,30 @@
+# ====== Maven ======
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# ====== IDE ======
+.idea/
+*.iml
+.vscode/
+.settings/
+.project
+.classpath
+.factorypath
+.springBeans
+
+# ====== Java ======
+*.class
+*.jar
+*.war
+hs_err_pid*
+replay_pid*
+
+# ====== OS ======
+Thumbs.db
+.DS_Store
+*~
+*.swp
+
+# ====== Logs & Temp ======
+*.log
+/logs/
