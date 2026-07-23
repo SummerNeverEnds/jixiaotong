@@ -1,0 +1,43 @@
+server:
+  port: 8088
+
+spring:
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6834
+      database: 0
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns:
+              - "http://localhost:*"
+              - "http://127.0.0.1:*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
+            maxAge: 3600
+      routes:
+        - id: performance-service
+          uri: lb://performance-service #路由目标地址 load balance
+          predicates: #路由断言
+            - Path=/api/**
+
+jwt:
+  secret: jixiaotong-performance-jwt-secret-key-2026-change-me
+  expire-hours: 24
+
+gateway:
+  login-rate-limit:
+    window-seconds: 60
+    max-requests: 20
